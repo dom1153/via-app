@@ -1,0 +1,15 @@
+scripts/build-definitions.js
+    Downloads json files by 'vendorProductIds' from the-via/keyboards github repo
+
+main: index.html > src/index.tsx > Routes.tsx
+
+pages are separated into components/panes/[pane]
+
+Default settings are configured at src/utils/device-store.ts
+
+Keyboard renderer
+    Routes.tsx > Canvas router (two-string) > test.tsx > Test > TestKeyboard > getKeyboardCanvas > keyboard-canvas (two-string)
+        > Case | Key-group | keycap (unit-key)
+
+Painted in 2d with canvas
+3d with react-fibre
