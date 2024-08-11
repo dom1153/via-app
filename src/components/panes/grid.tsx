@@ -9,6 +9,7 @@ export const Grid = styled.div`
   > div {
     pointer-events: all;
   }
+  padding: 5px;
 `;
 
 export const Cell = styled.div`
@@ -105,6 +106,21 @@ export const ControlRow = styled.div`
   padding-left: 5px;
   padding-right: 5px;
 `;
+
+export const ControlRowHeader = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  font-size: 24px;
+  justify-content: space-between;
+  display: flex;
+  min-height: 50px;
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 32px;
+`;
+// background-color: #333333;
 
 export const IndentedControlRow = styled(ControlRow)`
   padding-left: 17px;

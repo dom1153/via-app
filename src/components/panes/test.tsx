@@ -12,6 +12,7 @@ import {
   IconContainer,
   Grid,
   SpanOverflowCell,
+  ControlRowHeader,
 } from './grid';
 import {AccentSlider} from '../inputs/accent-slider';
 import {AccentButton} from '../inputs/accent-button';
@@ -137,6 +138,7 @@ export const Test: FC = () => {
         </MenuCell>
         <SpanOverflowCell>
           <Container>
+            <ControlRowHeader>Main</ControlRowHeader>
             <ControlRow>
               <Label>Reset Keyboard</Label>
               <Detail>
@@ -159,8 +161,9 @@ export const Test: FC = () => {
                 </Detail>
               </ControlRow>
             ) : null}
+            <ControlRowHeader>Key Sounds</ControlRowHeader>
             <ControlRow>
-              <Label>Key Sounds</Label>
+              <Label>Enable Key Sounds</Label>
               <Detail>
                 <AccentSlider
                   isChecked={testKeyboardSoundsSettings.isEnabled}

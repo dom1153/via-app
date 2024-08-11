@@ -2,6 +2,14 @@
 
 ![android-chrome-192x192](https://user-images.githubusercontent.com/1714072/222621960-ddfb8ee6-a486-4c66-8852-b204ba7c807b.png)
 
+# What is this repo?
+
+This is a fork of the [usevia.app](https://github.com/the-via/app) with customized features for my personal liking.
+
+## Customized features
+
+- [x] Keyboard tester sounds off by default
+
 ## Useful commands
 
 ### `npm run dev`

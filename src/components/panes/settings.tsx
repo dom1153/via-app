@@ -10,6 +10,7 @@ import {
   Row,
   IconContainer,
   SpanOverflowCell,
+  ControlRowHeader,
 } from './grid';
 import {AccentSlider} from '../inputs/accent-slider';
 import {useDispatch} from 'react-redux';
@@ -102,6 +103,7 @@ export const Settings = () => {
         </MenuCell>
         <SpanOverflowCell style={{flex: 1, borderWidth: 0}}>
           <Container>
+            <ControlRowHeader>Settings</ControlRowHeader>
             <ControlRow>
               <Label>Show Design tab</Label>
               <Detail>
@@ -120,6 +122,7 @@ export const Settings = () => {
                 />
               </Detail>
             </ControlRow>
+            <ControlRowHeader>Interface</ControlRowHeader>
             <ControlRow>
               <Label>Light Mode</Label>
               <Detail>
@@ -153,6 +156,7 @@ export const Settings = () => {
                 />
               </Detail>
             </ControlRow>
+            <ControlRowHeader>Debug</ControlRowHeader>
             <ControlRow>
               <Label>Show Diagnostic Information</Label>
 
