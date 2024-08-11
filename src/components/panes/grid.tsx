@@ -82,6 +82,58 @@ export const CategoryIconContainer = styled.span<{$selected?: boolean}>`
   }
 `;
 
+export const ControlRowIconContainer = styled.span<{$selected?: boolean}>`
+  position: relative;
+  color: var(--color_inside-accent);
+  height: 35px;
+  cursor: pointer;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  background: ${(props) =>
+    props.$selected ? 'var(--color_accent)' : 'transparent'};
+  border-radius: 10px;
+  width: 40px;
+  cursor: pointer;
+  &:hover {
+    & .tooltip {
+      opacity: 1;
+    }
+  }
+  .tooltip {
+    opacity: 0;
+  }
+`;
+
+export const CategoryTextIconContainer = styled.span<{$selected?: boolean}>`
+  position: relative;
+  color: var(--color_inside-accent);
+  height: 35px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 1px 10px;
+  /* padding-left: 7px; */
+  /* padding-right: 7px; */
+  background: ${(props) =>
+    props.$selected ? 'var(--color_accent)' : 'transparent'};
+  border-radius: 10px;
+  &:hover {
+    color: ${(props) =>
+      props.$selected ? 'var(--color_inside-accent)' : 'var(--color_accent)'};
+    & .tooltip {
+      transform: scale(1) translateX(0px);
+      opacity: 1;
+    }
+  }
+  .tooltip {
+    transform: translateX(-5px) scale(0.6);
+    opacity: 0;
+  }
+`;
+
 export const IconContainer = styled.span`
   display: inline-block;
   text-align: center;
@@ -121,6 +173,20 @@ export const ControlRowHeader = styled.div`
   padding-top: 32px;
 `;
 // background-color: #333333;
+
+export const ContainerHeader = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  font-size: 28px;
+  justify-content: space-between;
+  display: flex;
+  min-height: 50px;
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 28px;
+`;
 
 export const IndentedControlRow = styled(ControlRow)`
   padding-left: 17px;

@@ -34,7 +34,8 @@ const defaultStoreData = {
     renderMode: '2D' as const,
     themeMode: 'dark' as const,
     designDefinitionVersion: 'v3' as const,
-    themeName: 'OLIVIA_DARK',
+    themeName: 'CARBON_BLACK_A',
+    // themeName: 'OLIVIA_DARK',
     macroEditor: {
       smartOptimizeEnabled: true,
       recordDelaysEnabled: false,

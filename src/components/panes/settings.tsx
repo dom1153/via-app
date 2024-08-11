@@ -11,6 +11,8 @@ import {
   IconContainer,
   SpanOverflowCell,
   ControlRowHeader,
+  ContainerHeader,
+  ControlRowIconContainer,
 } from './grid';
 import {AccentSlider} from '../inputs/accent-slider';
 import {useDispatch} from 'react-redux';
@@ -32,10 +34,19 @@ import {THEMES} from 'src/utils/themes';
 import {MenuContainer} from './configure-panes/custom/menu-generator';
 import {MenuTooltip} from '../inputs/tooltip';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faToolbox} from '@fortawesome/free-solid-svg-icons';
+import {
+  faCircleQuestion,
+  faQuestion,
+  faToolbox,
+} from '@fortawesome/free-solid-svg-icons';
 import {getSelectedConnectedDevice} from 'src/store/devicesSlice';
 import {ErrorMessage} from '../styled';
 import {webGLIsAvailable} from 'src/utils/test-webgl';
+import {
+  IconButtonContainer,
+  IconToggleContainer,
+} from 'src/components/inputs/icon-button';
+import {IconButtonTooltip} from 'src/components/inputs/tooltip';
 
 const Container = styled.div`
   display: flex;
@@ -92,29 +103,30 @@ export const Settings = () => {
     <Pane>
       <Grid style={{overflow: 'hidden'}}>
         <MenuCell style={{pointerEvents: 'all', borderTop: 'none'}}>
-          <MenuContainer>
+          {/* <MenuContainer>
             <Row $selected={true}>
               <IconContainer>
                 <FontAwesomeIcon icon={faToolbox} />
                 <MenuTooltip>General</MenuTooltip>
               </IconContainer>
             </Row>
-          </MenuContainer>
+          </MenuContainer> */}
         </MenuCell>
         <SpanOverflowCell style={{flex: 1, borderWidth: 0}}>
           <Container>
-            <ControlRowHeader>Settings</ControlRowHeader>
+            <ContainerHeader>Settings</ContainerHeader>
+            <ControlRowHeader>Behavior</ControlRowHeader>
             <ControlRow>
-              <Label>Show Design tab</Label>
-              <Detail>
-                <AccentSlider
-                  onChange={() => dispatch(toggleCreatorMode())}
-                  isChecked={showDesignTab}
-                />
-              </Detail>
-            </ControlRow>
-            <ControlRow>
-              <Label>Fast Key Mapping</Label>
+              <Label>
+                Fast Key Mapping{' '}
+                <ControlRowIconContainer>
+                  <FontAwesomeIcon icon={faCircleQuestion} />
+                  {/* TODO: modal with a gif */}
+                  <MenuTooltip>
+                    Moves to the next key up clicking a key in configure
+                  </MenuTooltip>
+                </ControlRowIconContainer>
+              </Label>
               <Detail>
                 <AccentSlider
                   onChange={() => dispatch(toggleFastRemap())}
@@ -122,8 +134,9 @@ export const Settings = () => {
                 />
               </Detail>
             </ControlRow>
-            <ControlRowHeader>Interface</ControlRowHeader>
-            <ControlRow>
+            <ControlRowHeader>Apperance</ControlRowHeader>
+            {/* Light mode has poor contrast */}
+            {/* <ControlRow>
               <Label>Light Mode</Label>
               <Detail>
                 <AccentSlider
@@ -131,7 +144,7 @@ export const Settings = () => {
                   isChecked={themeMode === 'light'}
                 />
               </Detail>
-            </ControlRow>
+            </ControlRow> */}
             <ControlRow>
               <Label>Keycap Theme</Label>
               <Detail>
@@ -157,6 +170,15 @@ export const Settings = () => {
               </Detail>
             </ControlRow>
             <ControlRowHeader>Debug</ControlRowHeader>
+            <ControlRow>
+              <Label>Show Design tab</Label>
+              <Detail>
+                <AccentSlider
+                  onChange={() => dispatch(toggleCreatorMode())}
+                  isChecked={showDesignTab}
+                />
+              </Detail>
+            </ControlRow>
             <ControlRow>
               <Label>Show Diagnostic Information</Label>
 

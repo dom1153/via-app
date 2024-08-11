@@ -9,6 +9,7 @@ This is a fork of the [usevia.app](https://github.com/the-via/app) with customiz
 ## Customized features
 
 - [x] Keyboard tester sounds off by default
+- [x] Added headings to UI Sections
 
 ## Useful commands
 

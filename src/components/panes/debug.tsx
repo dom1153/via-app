@@ -1,25 +1,25 @@
-import {useState, FC} from 'react';
-import {Pane} from './pane';
+import { useState, FC } from 'react';
+import { Pane } from './pane';
 import styled from 'styled-components';
-import {KeyboardValue} from '../../utils/keyboard-api';
-import {anyKeycodeToString} from '../../utils/advanced-keys';
-import {AccentSelect} from '../inputs/accent-select';
-import {AccentButton} from '../inputs/accent-button';
-import {AccentSlider} from '../inputs/accent-slider';
-import {ArrayColorPicker} from '../inputs/color-picker';
-import {PelpiKeycodeInput} from '../inputs/pelpi/keycode-input';
+import { KeyboardValue } from '../../utils/keyboard-api';
+import { anyKeycodeToString } from '../../utils/advanced-keys';
+import { AccentSelect } from '../inputs/accent-select';
+import { AccentButton } from '../inputs/accent-button';
+import { AccentSlider } from '../inputs/accent-slider';
+import { ArrayColorPicker } from '../inputs/color-picker';
+import { PelpiKeycodeInput } from '../inputs/pelpi/keycode-input';
 import {
   ControlRow,
   Label,
   SubLabel,
   Detail,
   IndentedControlRow,
-  OverflowCell,
+  OverflowCell
 } from './grid';
 import Layouts from '../Layouts';
-import type {VIADefinitionV2, VIADefinitionV3} from '@the-via/reader';
-import {AccentRange} from '../inputs/accent-range';
-import {useAppSelector} from 'src/store/hooks';
+import type { VIADefinitionV2, VIADefinitionV3 } from '@the-via/reader';
+import { AccentRange } from '../inputs/accent-range';
+import { useAppSelector } from 'src/store/hooks';
 import {
   getConnectedDevices,
   getSelectedKeyboardAPI,
@@ -31,15 +31,15 @@ import {
   getBasicKeyToByte,
 } from 'src/store/definitionsSlice';
 import TextInput from '../inputs/text-input';
-import {getNextKey} from 'src/utils/keyboard-rendering';
-import {ColorPalettePicker} from '../inputs/color-palette-picker';
-import {useDispatch} from 'react-redux';
+import { getNextKey } from 'src/utils/keyboard-rendering';
+import { ColorPalettePicker } from '../inputs/color-palette-picker';
+import { useDispatch } from 'react-redux';
 import {
   getSelected256PaletteColor,
   setSelectedPaletteColor,
 } from 'src/store/keymapSlice';
-import {MacroRecorder} from './configure-panes/submenus/macros/macro-recorder';
-import {RawKeycodeSequenceAction} from 'src/utils/macro-api/types';
+import { MacroRecorder } from './configure-panes/submenus/macros/macro-recorder';
+import { RawKeycodeSequenceAction } from 'src/utils/macro-api/types';
 
 // TODO: should we differentiate between firwmare versions in the UI?
 type KeyboardDefinitionEntry = [string, VIADefinitionV2 | VIADefinitionV3];
@@ -260,6 +260,7 @@ export const Debug: FC = () => {
 
   return (
     <Pane>
+      
       <OverflowCell>
         <Container>
           {/* <GithubUserData /> */}

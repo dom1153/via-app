@@ -13,6 +13,7 @@ import {
   Grid,
   SpanOverflowCell,
   ControlRowHeader,
+  ContainerHeader,
 } from './grid';
 import {AccentSlider} from '../inputs/accent-slider';
 import {AccentButton} from '../inputs/accent-button';
@@ -127,18 +128,19 @@ export const Test: FC = () => {
     <TestPane>
       <Grid>
         <MenuCell style={{pointerEvents: 'all'}}>
-          <MenuContainer>
+          {/* <MenuContainer>
             <Row $selected={true}>
               <IconContainer>
                 <FontAwesomeIcon icon={faCircleQuestion} />
                 <MenuTooltip>Check Key</MenuTooltip>
               </IconContainer>
             </Row>
-          </MenuContainer>
+          </MenuContainer> */}
         </MenuCell>
         <SpanOverflowCell>
           <Container>
-            <ControlRowHeader>Main</ControlRowHeader>
+            <ContainerHeader>Testing</ContainerHeader>
+            <ControlRowHeader>General</ControlRowHeader>
             <ControlRow>
               <Label>Reset Keyboard</Label>
               <Detail>

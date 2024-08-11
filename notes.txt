@@ -13,3 +13,6 @@ Keyboard renderer
 
 Painted in 2d with canvas
 3d with react-fibre
+
+Todo:
+1. Add a toast system to describe what fast key mapping means

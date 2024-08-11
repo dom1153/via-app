@@ -6,7 +6,7 @@ import {useAppSelector} from 'src/store/hooks';
 import {getShowDesignTab} from 'src/store/settingsSlice';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {CategoryMenuTooltip} from '../inputs/tooltip';
-import {CategoryIconContainer} from '../panes/grid';
+import {CategoryIconContainer, CategoryTextIconContainer} from '../panes/grid';
 import {ErrorLink, ErrorsPaneConfig} from '../panes/errors';
 import {ExternalLinks} from './external-links';
 
@@ -25,7 +25,7 @@ const showDebugPane = MODE === 'development' || DEBUG_PROD === 'true' || DEV;
 
 const GlobalContainer = styled(Container)`
   background: var(--bg_outside-accent);
-  column-gap: 20px;
+  column-gap: 25px;
 `;
 
 export const UnconnectedGlobalMenu = () => {
@@ -40,10 +40,11 @@ export const UnconnectedGlobalMenu = () => {
         if (pane.key === 'debug' && !showDebugPane) return null;
         return (
           <Link key={pane.key} to={pane.path}>
-            <CategoryIconContainer $selected={pane.path === location}>
+            <CategoryTextIconContainer $selected={pane.path === location}>
               <FontAwesomeIcon size={'xl'} icon={pane.icon} />
-              <CategoryMenuTooltip>{pane.title}</CategoryMenuTooltip>
-            </CategoryIconContainer>
+              {/* <CategoryMenuTooltip>{pane.title}</CategoryMenuTooltip> */}
+              <p>{pane.title}</p>
+            </CategoryTextIconContainer>
           </Link>
         );
       },

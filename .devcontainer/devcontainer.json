@@ -1,17 +1,16 @@
 {
-	"name": "Node.js",
-	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
-	"appPort": [
-		4321
-	],
-	"postCreateCommand": "npm install",
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"astro-build.astro-vscode",
-				"bradlc.vscode-tailwindcss",
-				"esbenp.prettier-vscode"
-			]
-		}
-	},
+  "name": "Node.js",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "appPort": [4321],
+  "postCreateCommand": "npm install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "astro-build.astro-vscode",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "styled-components.vscode-styled-components"
+      ]
+    }
+  }
 }
