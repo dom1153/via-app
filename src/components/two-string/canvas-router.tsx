@@ -19,11 +19,15 @@ import {shallowEqual} from 'react-redux';
 import {DefinitionVersionMap, KeyColorType} from '@the-via/reader';
 import {
   getDesignDefinitionVersion,
+  getRenderMode,
   getSelectedTheme,
+  updateRenderMode,
 } from 'src/store/settingsSlice';
 import {OVERRIDE_HID_CHECK} from 'src/utils/override';
 import styled from 'styled-components';
 import {getDarkenedColor} from 'src/utils/color-math';
+import {Detail, Label} from '../panes/grid';
+import {AccentSlider} from '../inputs/accent-slider';
 
 const KeyboardBG = styled.div<{
   onClick: () => void;
@@ -98,6 +102,7 @@ export const CanvasRouter = () => {
     getConfigureKeyboardIsSelectable,
   );
   const hideTerrainBG = showLoader;
+  const renderMode = useAppSelector(getRenderMode);
 
   return (
     <>
@@ -136,6 +141,26 @@ export const CanvasRouter = () => {
               configureKeyboardIsSelectable={configureKeyboardIsSelectable}
               loadProgress={loadProgress}
             />
+            <div
+              style={{
+                position: 'fixed',
+                background: 'black',
+                padding: '10px',
+                zIndex: '10000',
+              }}
+            >
+              <Label>3D mode</Label>
+              <Detail>
+                <AccentSlider
+                  isChecked={renderMode === '2D' ? false : true}
+                  onChange={() => {
+                    dispatch(
+                      updateRenderMode(renderMode === '2D' ? '3D' : '2D'),
+                    );
+                  }}
+                />
+              </Detail>
+            </div>
           </>
         )}
       </div>

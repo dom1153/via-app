@@ -29,7 +29,7 @@ const defaultStoreData = {
   },
   definitions: {},
   settings: {
-    showDesignTab: false,
+    showDesignTab: import.meta.env.MODE === 'development' ? true : false,
     disableFastRemap: false,
     renderMode: '2D' as const,
     themeMode: 'dark' as const,

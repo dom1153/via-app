@@ -29,7 +29,9 @@ import {DefinitionVersionMap, KeyColorType} from '@the-via/reader';
 import {UpdateUVMaps} from './update-uv-maps';
 import {
   getDesignDefinitionVersion,
+  getRenderMode,
   getSelectedTheme,
+  updateRenderMode,
 } from 'src/store/settingsSlice';
 import glbSrc from 'assets/models/keyboard_components.glb';
 import cubeySrc from 'assets/models/cubey.glb';
@@ -39,6 +41,8 @@ import {reloadConnectedDevices} from 'src/store/devicesThunks';
 import {faSpinner, faUnlock} from '@fortawesome/free-solid-svg-icons';
 import {LoaderCubey} from './loader-cubey';
 import {OVERRIDE_HID_CHECK} from 'src/utils/override';
+import {Detail, Label} from '../panes/grid';
+import {AccentSlider} from '../inputs/accent-slider';
 useGLTF.preload(cubeySrc);
 useGLTF.preload(glbSrc);
 
@@ -102,6 +106,7 @@ export const CanvasRouter = () => {
   const configureKeyboardIsSelectable = useAppSelector(
     getConfigureKeyboardIsSelectable,
   );
+  const renderMode = useAppSelector(getRenderMode);
 
   const hideTerrainBG = showLoader;
   useEffect(() => {
@@ -188,6 +193,25 @@ export const CanvasRouter = () => {
             />
           ) : null}
         </Canvas>
+      </div>
+      {/* TODO: slap into the canvas */}
+      <div
+        style={{
+          position: 'fixed',
+          background: 'black',
+          padding: '10px',
+          zIndex: '10000',
+        }}
+      >
+        <Label>3D mode</Label>
+        <Detail>
+          <AccentSlider
+            isChecked={renderMode === '2D' ? false : true}
+            onChange={() => {
+              dispatch(updateRenderMode(renderMode === '2D' ? '3D' : '2D'));
+            }}
+          />
+        </Detail>
       </div>
     </>
   );
