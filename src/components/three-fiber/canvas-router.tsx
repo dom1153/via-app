@@ -193,25 +193,26 @@ export const CanvasRouter = () => {
             />
           ) : null}
         </Canvas>
-      </div>
-      {/* TODO: slap into the canvas */}
-      <div
-        style={{
-          position: 'fixed',
-          background: 'black',
-          padding: '10px',
-          zIndex: '10000',
-        }}
-      >
-        <Label>3D mode</Label>
-        <Detail>
-          <AccentSlider
-            isChecked={renderMode === '2D' ? false : true}
-            onChange={() => {
-              dispatch(updateRenderMode(renderMode === '2D' ? '3D' : '2D'));
-            }}
-          />
-        </Detail>
+        {/* TODO: slap into the canvas */}
+        <div
+          style={{
+            position: 'absolute',
+            background: 'black',
+            padding: '10px',
+            zIndex: '10000',
+            top: '0',
+          }}
+        >
+          <Label>3D mode</Label>
+          <Detail>
+            <AccentSlider
+              isChecked={renderMode === '2D' ? false : true}
+              onChange={() => {
+                dispatch(updateRenderMode(renderMode === '2D' ? '3D' : '2D'));
+              }}
+            />
+          </Detail>
+        </div>
       </div>
     </>
   );
