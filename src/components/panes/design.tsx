@@ -32,6 +32,7 @@ import {
   MenuCell,
   Row,
   IconContainer,
+  ControlRowHeader,
 } from './grid';
 import {useDispatch} from 'react-redux';
 import {selectDevice, ensureSupportedIds} from 'src/store/devicesSlice';
@@ -305,6 +306,7 @@ export const DesignTab: FC = () => {
         </MenuCell>
         <SpanOverflowCell>
           <Container>
+            <ControlRowHeader>File</ControlRowHeader>
             <ControlRow>
               <Label>Load Draft Definition</Label>
               <Detail>
@@ -335,6 +337,7 @@ export const DesignTab: FC = () => {
                 />
               </Detail>
             </ControlRow>
+            <ControlRowHeader>Keyboard (Loaded Design)</ControlRowHeader>
             {definition && (
               <>
                 <ControlRow>
@@ -367,6 +370,7 @@ export const DesignTab: FC = () => {
                 }}
               />
             )}
+            <ControlRowHeader>Settings</ControlRowHeader>
             {definition && (
               <ControlRow>
                 <Label>Show Matrix</Label>
@@ -385,6 +389,7 @@ export const DesignTab: FC = () => {
                 <DesignErrorMessage>{error}</DesignErrorMessage>
               </IndentedControlRow>
             ))}
+            <ControlRowHeader>Info</ControlRowHeader>
             <ControlRow>
               <Label>Draft Definitions</Label>
               <Detail>

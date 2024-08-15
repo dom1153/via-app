@@ -1,5 +1,6 @@
 scripts/build-definitions.js
     Downloads json files by 'vendorProductIds' from the-via/keyboards github repo
+    Export to public/definitions
 
 main: index.html > src/index.tsx > Routes.tsx
 
