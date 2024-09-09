@@ -62,9 +62,11 @@ import {
   updateDesignDefinitionVersion,
 } from 'src/store/settingsSlice';
 
+const {DEV} = import.meta.env;
+
 let designWarningSeen = Number(localStorage.getItem('designWarningSeen') || 0);
 let hideDesignWarning =
-  sessionStorage.getItem('hideDesignWarning') || designWarningSeen > 4;
+  sessionStorage.getItem('hideDesignWarning') || designWarningSeen > 4 || DEV;
 
 const DesignErrorMessage = styled(ErrorMessage)`
   margin: 0;
