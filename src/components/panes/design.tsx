@@ -40,6 +40,7 @@ import {reloadConnectedDevices} from 'src/store/devicesThunks';
 import {useAppSelector} from 'src/store/hooks';
 import {
   getCustomDefinitions,
+  getBaseDefinitions,
   loadCustomDefinitions,
   storeCustomDefinitions,
   unloadCustomDefinition,
@@ -229,6 +230,7 @@ function onDrop(
 export const DesignTab: FC = () => {
   const dispatch = useDispatch();
   const localDefinitions = Object.values(useAppSelector(getCustomDefinitions));
+  const baseDefinitions = Object.values(useAppSelector(getBaseDefinitions));
   const definitionVersion = useAppSelector(getDesignDefinitionVersion);
   const selectedDefinitionIndex = useAppSelector(getSelectedDefinitionIndex);
   const showMatrix = useAppSelector(getShowMatrix);
@@ -240,8 +242,20 @@ export const DesignTab: FC = () => {
       ),
     [localDefinitions, definitionVersion],
   );
+  const baseVersionDefinitions: DefinitionVersionMap[] = useMemo(
+    () =>
+      baseDefinitions.filter(
+        (definitionMap) => definitionMap[definitionVersion],
+      ),
+    [baseDefinitions, definitionVersion],
+  );
 
   const options = versionDefinitions.map((definitionMap, index) => ({
+    label: definitionMap[definitionVersion].name,
+    value: index.toString(),
+  }));
+
+  const baseOptions = baseVersionDefinitions.map((definitionMap, index) => ({
     label: definitionMap[definitionVersion].name,
     value: index.toString(),
   }));
@@ -341,7 +355,31 @@ export const DesignTab: FC = () => {
             {definition && (
               <>
                 <ControlRow>
-                  <Label>Shown Keyboard Definition</Label>
+                  <Label>Base Definitions</Label>
+                  <Detail>
+                    <AccentSelect
+                      onChange={(option: any) => {
+                        // Reset selected layouts when choosing a different
+                        // definition
+                        dispatch(updateSelectedOptionKeys([]));
+
+                        if (option) {
+                          dispatch(
+                            updateSelectedDefinitionIndex(+option.value),
+                          );
+                        }
+                      }}
+                      value={baseOptions[selectedDefinitionIndex]}
+                      options={baseOptions}
+                    />
+                  </Detail>
+                </ControlRow>
+              </>
+            )}
+            {definition && (
+              <>
+                <ControlRow>
+                  <Label>Shown (Custom) Keyboard Definition</Label>
                   <Detail>
                     <AccentSelect
                       onChange={(option: any) => {

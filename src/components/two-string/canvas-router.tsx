@@ -147,6 +147,8 @@ export const CanvasRouter = () => {
                 background: 'black',
                 padding: '10px',
                 zIndex: '10000',
+                visibility:
+                  hideCanvasScene && !hideTerrainBG ? 'hidden' : 'visible',
               }}
             >
               <Label>3D mode</Label>

@@ -193,14 +193,14 @@ export const CanvasRouter = () => {
             />
           ) : null}
         </Canvas>
-        {/* TODO: slap into the canvas */}
+        {/* TODO: de-renders really slowly on main page??? */}
         <div
           style={{
             position: 'absolute',
             background: 'black',
             padding: '10px',
-            zIndex: '10000',
             top: '0',
+            visibility: hideCanvasScene ? 'hidden' : 'visible',
           }}
         >
           <Label>3D mode</Label>
